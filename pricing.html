@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MyParkPay offers transparent, simple pricing for event ticketing. No hidden fees, no surprises. Start free and scale as you grow.">
+    <meta name="author" content="MyParkPay">
+    <meta name="robots" content="index, follow">
+    <title>Pricing | MyParkPay</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://myparkpay.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Pricing",
+                "item": "https://myparkpay.com/pricing"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    My<span>ParkPay</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html" class="active">Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-cta"><a href="contact.html" class="btn btn-primary">Start Free Trial</a></div>
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Simple, Transparent Pricing</h1>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Pricing</li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="section" id="plans">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Plans</span>
+                <h2 class="section-title">Choose Your Plan</h2>
+                <p class="section-subtitle">No hidden fees. No surprises. Start free and scale as you grow.</p>
+            </div>
+
+            <!-- Pricing Toggle -->
+            <div class="pricing-toggle">
+                <span class="toggle-monthly active">Monthly</span>
+                <div class="toggle-switch"></div>
+                <span class="toggle-annual">Annual <span class="pricing-save-badge">Save 20%</span></span>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div class="pricing-grid">
+
+                <!-- Starter Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <h3 class="pricing-plan-name">Starter</h3>
+                        <div class="pricing-price">
+                            <span class="pricing-amount" data-monthly="$0" data-annual="$0">$0</span>
+                            <span class="pricing-period">/month</span>
+                        </div>
+                        <span class="pricing-label">Free</span>
+                        <p class="pricing-description">Perfect for small organizations just getting started</p>
+                    </div>
+                    <div class="pricing-card-body">
+                        <ul class="pricing-features">
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Up to 3 events/month</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Up to 100 tickets/event</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Basic analytics</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Email support</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Standard ticket templates</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> 3% + $0.50 per ticket fee</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-card-footer">
+                        <a href="signup.html" class="btn btn-outline-dark btn-block">Get Started Free</a>
+                    </div>
+                </div>
+
+                <!-- Pro Plan (Featured) -->
+                <div class="pricing-card featured">
+                    <div class="pricing-card-badge">Recommended</div>
+                    <div class="pricing-card-header">
+                        <h3 class="pricing-plan-name">Pro</h3>
+                        <div class="pricing-price">
+                            <span class="pricing-amount" data-monthly="$49" data-annual="$39">$49</span>
+                            <span class="pricing-period">/month</span>
+                        </div>
+                        <span class="pricing-label annual-label" style="display: none;">Save 20%</span>
+                        <p class="pricing-description">For growing organizations that need more power</p>
+                    </div>
+                    <div class="pricing-card-body">
+                        <ul class="pricing-features">
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Unlimited events</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Unlimited tickets</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Advanced analytics &amp; reports</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Priority support</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Custom branding</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Reserved seating</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Promo codes &amp; discounts</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> 2% + $0.30 per ticket fee</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-card-footer">
+                        <a href="signup.html" class="btn btn-primary btn-block">Start Free Trial</a>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <h3 class="pricing-plan-name">Enterprise</h3>
+                        <div class="pricing-price">
+                            <span class="pricing-amount">Custom</span>
+                        </div>
+                        <p class="pricing-description">For large organizations with complex needs</p>
+                    </div>
+                    <div class="pricing-card-body">
+                        <ul class="pricing-features">
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Everything in Pro</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> White-label solution</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Dedicated account manager</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> API access</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Custom integrations</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> SLA guarantee</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> Volume pricing</li>
+                            <li class="pricing-feature"><i class="fas fa-check"></i> 24/7 phone support</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-card-footer">
+                        <a href="contact.html" class="btn btn-outline-dark btn-block">Contact Sales</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Comparison -->
+    <section class="section section-gray" id="compare-plans">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Compare Plans</span>
+                <h2 class="section-title">Feature Comparison</h2>
+            </div>
+            <div class="table-responsive" style="overflow-x: auto;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Starter</th>
+                            <th class="highlight">Pro</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Events per month</td>
+                            <td>3</td>
+                            <td class="highlight">Unlimited</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Tickets per event</td>
+                            <td>100</td>
+                            <td class="highlight">Unlimited</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Analytics</td>
+                            <td>Basic</td>
+                            <td class="highlight">Advanced</td>
+                            <td>Advanced + Custom</td>
+                        </tr>
+                        <tr>
+                            <td>Support</td>
+                            <td>Email</td>
+                            <td class="highlight">Priority</td>
+                            <td>24/7 Dedicated</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Branding</td>
+                            <td><i class="fas fa-times text-muted"></i></td>
+                            <td class="highlight"><i class="fas fa-check text-success"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Reserved Seating</td>
+                            <td><i class="fas fa-times text-muted"></i></td>
+                            <td class="highlight"><i class="fas fa-check text-success"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Promo Codes</td>
+                            <td><i class="fas fa-times text-muted"></i></td>
+                            <td class="highlight"><i class="fas fa-check text-success"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                        <tr>
+                            <td>API Access</td>
+                            <td><i class="fas fa-times text-muted"></i></td>
+                            <td class="highlight"><i class="fas fa-times text-muted"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                        <tr>
+                            <td>White Label</td>
+                            <td><i class="fas fa-times text-muted"></i></td>
+                            <td class="highlight"><i class="fas fa-times text-muted"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Per-ticket Fee</td>
+                            <td>3% + $0.50</td>
+                            <td class="highlight">2% + $0.30</td>
+                            <td>Custom</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid">
+
+                <div class="service-card">
+                    <div class="service-card-icon"><i class="fas fa-gift"></i></div>
+                    <h3>Can I try MyParkPay for free?</h3>
+                    <p>Absolutely! Our Starter plan is completely free and includes up to 3 events per month with up to 100 tickets each. No credit card required to get started. You can also try the Pro plan free for 14 days.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-icon"><i class="fas fa-credit-card"></i></div>
+                    <h3>What payment methods do you accept?</h3>
+                    <p>We accept all major credit and debit cards including Visa, Mastercard, American Express, and Discover. We also support payments via ACH bank transfers and PayPal for annual subscriptions.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-icon"><i class="fas fa-exchange-alt"></i></div>
+                    <h3>Can I upgrade or downgrade at any time?</h3>
+                    <p>Yes, you can change your plan at any time. Upgrades take effect immediately with prorated billing. Downgrades take effect at the start of your next billing cycle so you keep your current features until then.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-icon"><i class="fas fa-file-contract"></i></div>
+                    <h3>Is there a contract or commitment?</h3>
+                    <p>No contracts, no commitments. All plans are billed on a month-to-month basis unless you choose annual billing for the discount. You can cancel anytime without penalty.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-icon"><i class="fas fa-receipt"></i></div>
+                    <h3>How does the per-ticket fee work?</h3>
+                    <p>The per-ticket fee is charged only when a ticket is sold. It includes payment processing costs. For example, on the Starter plan, a $20 ticket would incur a fee of $1.10 (3% of $20 + $0.50). You can choose to pass this fee to the buyer or absorb it.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Do you offer discounts for nonprofits?</h3>
+                    <p>Yes! We proudly support nonprofit organizations with a 25% discount on Pro and Enterprise plans. Contact our sales team with proof of nonprofit status, and we will apply the discount to your account.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Still Have Questions?</h2>
+                <p>Our team is here to help you find the perfect plan for your event ticketing needs.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-white">Contact Us</a>
+                    <a href="signup.html" class="btn btn-outline-white">Start Free Trial</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-ticket-alt"></i></span>
+                        <span class="logo-text">MyParkPay</span>
+                    </a>
+                    <p>The modern event ticketing platform that makes selling tickets simple, fast, and affordable for organizations of all sizes.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="integrations.html">Integrations</a></li>
+                        <li><a href="updates.html">What's New</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="docs.html">Documentation</a></li>
+                        <li><a href="status.html">System Status</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="security.html">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MyParkPay. All rights reserved. | Powered by <a href="https://govportal.com" target="_blank" rel="noopener">Govportal</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
