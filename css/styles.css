@@ -1338,6 +1338,12 @@ select:focus-visible {
     color: var(--white);
 }
 
+.footer-bottom .powered-by {
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 .footer-bottom-links {
     display: flex;
     gap: 25px;
