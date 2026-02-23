@@ -147,16 +147,16 @@ $htmlBody = "
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
+        .header { background: linear-gradient(135deg, #0d9488 0%, #065f46 100%); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
         .header h1 { margin: 0; font-size: 24px; }
         .content { background: #f8fafc; padding: 30px; border: 1px solid #e2e8f0; }
         .field { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
         .field:last-child { border-bottom: none; margin-bottom: 0; }
-        .label { font-weight: bold; color: #667eea; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-        .value { font-size: 16px; color: #1a202c; }
+        .label { font-weight: bold; color: #0d9488; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .value { font-size: 16px; color: #0f172a; }
         .message-box { background: white; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 10px; }
-        .footer { background: #1a202c; color: #94a3b8; padding: 20px; text-align: center; font-size: 12px; border-radius: 0 0 8px 8px; }
-        .highlight { background: #ed64a6; color: white; padding: 3px 10px; border-radius: 4px; font-size: 14px; }
+        .footer { background: #0f172a; color: #94a3b8; padding: 20px; text-align: center; font-size: 12px; border-radius: 0 0 8px 8px; }
+        .highlight { background: #f97316; color: white; padding: 3px 10px; border-radius: 4px; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -386,17 +386,17 @@ try {
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
+        .header { background: linear-gradient(135deg, #0d9488 0%, #065f46 100%); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
         .header h1 { margin: 0; font-size: 24px; }
         .content { background: #f8fafc; padding: 30px; border: 1px solid #e2e8f0; }
         .field { margin-bottom: 15px; padding-bottom: 12px; border-bottom: 1px solid #e2e8f0; }
         .field:last-child { border-bottom: none; margin-bottom: 0; }
-        .label { font-weight: bold; color: #667eea; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
-        .value { font-size: 15px; color: #1a202c; }
+        .label { font-weight: bold; color: #0d9488; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .value { font-size: 15px; color: #0f172a; }
         .message-box { background: white; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 8px; font-size: 14px; color: #475569; }
         .cta { text-align: center; margin: 25px 0 10px 0; }
-        .cta a { background: #ed64a6; color: white; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; }
-        .footer { background: #1a202c; color: #94a3b8; padding: 20px; text-align: center; font-size: 12px; border-radius: 0 0 8px 8px; }
+        .cta a { background: #f97316; color: white; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; }
+        .footer { background: #0f172a; color: #94a3b8; padding: 20px; text-align: center; font-size: 12px; border-radius: 0 0 8px 8px; }
     </style>
 </head>
 <body>
@@ -495,16 +495,16 @@ if ($sent) {
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
+        .header { background: linear-gradient(135deg, #0d9488 0%, #065f46 100%); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
         .header h1 { margin: 0; font-size: 24px; }
         .content { background: #f8fafc; padding: 30px; border: 1px solid #e2e8f0; }
         .field { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
         .field:last-child { border-bottom: none; margin-bottom: 0; }
-        .label { font-weight: bold; color: #667eea; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-        .value { font-size: 16px; color: #1a202c; }
+        .label { font-weight: bold; color: #0d9488; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .value { font-size: 16px; color: #0f172a; }
         .message-box { background: white; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 10px; }
-        .footer { background: #1a202c; color: #94a3b8; padding: 20px; text-align: center; font-size: 12px; border-radius: 0 0 8px 8px; }
-        .highlight { background: #ed64a6; color: white; padding: 3px 10px; border-radius: 4px; font-size: 14px; }
+        .footer { background: #0f172a; color: #94a3b8; padding: 20px; text-align: center; font-size: 12px; border-radius: 0 0 8px 8px; }
+        .highlight { background: #f97316; color: white; padding: 3px 10px; border-radius: 4px; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -516,7 +516,7 @@ if ($sent) {
         <div class='content'>
             <p style='font-size: 16px; margin-top: 0;'>Hi {$name},</p>
             <p>Thank you for your interest in MyParkPay! We've received your demo request and a member of our team will be in touch shortly to help you get started.</p>
-            <p style='font-weight: bold; color: #667eea;'>Here's a summary of your request:</p>
+            <p style='font-weight: bold; color: #0d9488;'>Here's a summary of your request:</p>
             <div class='field'>
                 <div class='label'>Organization Type</div>
                 <div class='value'><span class='highlight'>{$serviceDisplay}</span></div>
@@ -609,7 +609,7 @@ Submitted on: " . date('F j, Y \a\t g:i A') . "
 <p><strong>Customer:</strong> {$name} ({$email})</p>
 <p><strong>Organization Type:</strong> {$serviceDisplay}</p>
 <p><strong>Error:</strong> {$smtpError}</p>
-<p style='margin-top:20px'><a href='https://aquamarine-peafowl-476925.hostingersite.com/dashboard/' style='background:#667eea;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:bold'>View in Dashboard</a></p>
+<p style='margin-top:20px'><a href='https://aquamarine-peafowl-476925.hostingersite.com/dashboard/' style='background:#0d9488;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:bold'>View in Dashboard</a></p>
 </div></div></body></html>";
 
         $failAlertText = "ALERT: MyParkPay email delivery failed\n\nCustomer: {$name} ({$email})\nOrg Type: {$serviceDisplay}\nError: {$smtpError}\n\nThe request has been saved in the dashboard.";
