@@ -399,6 +399,10 @@
             isAnnual = !isAnnual;
             toggle.classList.toggle('annual-active', isAnnual);
 
+            // Update toggle switch visual state
+            var switchEl = toggle.querySelector('.toggle-switch');
+            if (switchEl) switchEl.classList.toggle('active', isAnnual);
+
             // Update aria / toggle label states
             var monthlyLabel = toggle.querySelector('.toggle-monthly');
             var annualLabel = toggle.querySelector('.toggle-annual');

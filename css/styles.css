@@ -367,6 +367,19 @@ select:focus-visible {
     font-size: 1.05rem;
 }
 
+.btn-outline-dark {
+    background-color: transparent;
+    color: var(--dark);
+    border-color: var(--dark);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--dark);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
 .btn + .btn {
     margin-left: 15px;
 }
@@ -2247,7 +2260,8 @@ select:focus-visible {
     margin-top: 8px;
 }
 
-.pricing-price .amount {
+.pricing-price .amount,
+.pricing-amount {
     font-family: var(--font-heading);
     font-size: 3.5rem;
     font-weight: 800;
@@ -2256,7 +2270,8 @@ select:focus-visible {
 }
 
 .pricing-card.featured .pricing-price .currency,
-.pricing-card.featured .pricing-price .amount {
+.pricing-card.featured .pricing-price .amount,
+.pricing-card.featured .pricing-amount {
     color: var(--primary);
 }
 
@@ -2270,9 +2285,6 @@ select:focus-visible {
 /* Pricing Features List */
 .pricing-features {
     padding: 25px 30px;
-}
-
-.pricing-features ul {
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -2330,6 +2342,69 @@ select:focus-visible {
     background-color: var(--primary-dark);
     border-color: var(--primary-dark);
     box-shadow: var(--shadow-primary);
+}
+
+/* Feature Comparison Table */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 16px 24px;
+    text-align: center;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.comparison-table thead th {
+    background: var(--dark);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 18px 24px;
+}
+
+.comparison-table thead th.highlight {
+    background: var(--primary);
+}
+
+.comparison-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table tbody tr:hover {
+    background: var(--gray-100);
+}
+
+.comparison-table td.highlight {
+    background: rgba(13, 148, 136, 0.04);
+    font-weight: 500;
+}
+
+.comparison-table tbody tr:hover td.highlight {
+    background: rgba(13, 148, 136, 0.08);
+}
+
+.comparison-table .text-success {
+    color: var(--success);
+}
+
+.comparison-table .text-muted {
+    color: var(--gray-400);
 }
 
 /* --------------------------------------------
@@ -2894,6 +2969,13 @@ select:focus-visible {
         font-size: 3rem;
     }
 
+    /* Comparison table */
+    .comparison-table th,
+    .comparison-table td {
+        padding: 14px 16px;
+        font-size: 0.9rem;
+    }
+
     /* Use cases */
     .use-cases-grid {
         grid-template-columns: 1fr;
@@ -3020,6 +3102,16 @@ select:focus-visible {
 
     .pricing-card-footer {
         padding: 10px 20px 30px;
+    }
+
+    .comparison-table {
+        min-width: 500px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 10px 12px;
+        font-size: 0.8rem;
     }
 
     .pricing-price .amount {
