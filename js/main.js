@@ -50,21 +50,13 @@
         }
     }
 
-    /* --- 1b. Parallax backgrounds --- */
+    /* --- 1b. Parallax floating shapes --- */
     function handleParallax(scrollY) {
         if (prefersReducedMotion) return;
 
-        var hero = document.querySelector('.hero');
-        var cta = document.querySelector('.cta-section');
-
-        if (hero) {
-            hero.style.backgroundPositionY = -(scrollY * 0.35) + 'px';
-        }
-
-        if (cta) {
-            var ctaTop = cta.getBoundingClientRect().top + scrollY;
-            var offset = scrollY - ctaTop;
-            cta.style.backgroundPositionY = -(offset * 0.25) + 'px';
+        var shapesContainer = document.querySelector('.hero-shapes');
+        if (shapesContainer) {
+            shapesContainer.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
         }
     }
 
@@ -297,7 +289,7 @@
     function initScrollAnimations() {
         var animatedSelectors =
             '.service-card, .value-card, .team-card, .testimonial-card, ' +
-            '.why-feature, .timeline-item, .pricing-card';
+            '.why-feature, .timeline-item, .pricing-card, .use-case-card, .stat-item';
 
         var animatedEls = document.querySelectorAll(animatedSelectors);
         if (!animatedEls.length) return;
