@@ -305,6 +305,7 @@ select:focus-visible {
     transition: var(--transition);
     border: 2px solid transparent;
     line-height: 1.5;
+    min-height: 44px;
     position: relative;
     overflow: hidden;
 }
@@ -2383,6 +2384,7 @@ select:focus-visible {
         right: -100%;
         width: 300px;
         height: 100vh;
+        height: 100dvh;
         background: var(--white);
         flex-direction: column;
         align-items: flex-start;
@@ -2391,6 +2393,7 @@ select:focus-visible {
         box-shadow: var(--shadow-xl);
         transition: var(--transition);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         z-index: 999;
     }
 
@@ -2832,6 +2835,18 @@ select:focus-visible {
     .nav-menu {
         width: 100%;
         right: -100%;
+    }
+
+    /* Hide scroll indicator on mobile */
+    .hero-scroll {
+        display: none;
+    }
+
+    /* Reduce service icon size on mobile */
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
     }
 }
 

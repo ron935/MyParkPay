@@ -122,13 +122,33 @@
             nav.classList.toggle('active');
             toggle.classList.toggle('active');
 
-            // Body overflow lock
+            // Body scroll lock (works on iOS too)
             if (!expanded) {
                 document.body.style.overflow = 'hidden';
+                document.body.style.position = 'fixed';
+                document.body.style.width = '100%';
+                document.body.style.top = '-' + window.pageYOffset + 'px';
             } else {
+                var scrollY = document.body.style.top;
                 document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
+                document.body.style.top = '';
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
             }
         });
+
+        function closeMenu() {
+            nav.classList.remove('active');
+            toggle.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            var scrollY = document.body.style.top;
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        }
 
         // Click outside to close
         document.addEventListener('click', function (e) {
@@ -137,10 +157,7 @@
                 !nav.contains(e.target) &&
                 !toggle.contains(e.target)
             ) {
-                nav.classList.remove('active');
-                toggle.classList.remove('active');
-                toggle.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
+                closeMenu();
             }
         });
 
@@ -148,10 +165,7 @@
         var links = nav.querySelectorAll('a');
         for (var i = 0; i < links.length; i++) {
             links[i].addEventListener('click', function () {
-                nav.classList.remove('active');
-                toggle.classList.remove('active');
-                toggle.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
+                closeMenu();
             });
         }
     }
