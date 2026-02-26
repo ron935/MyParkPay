@@ -34,9 +34,9 @@ $supabaseConfig = require __DIR__ . '/../supabase-config.php';
 foreach ($supabaseConfig as $k => $v) { if (is_string($v)) $supabaseConfig[$k] = preg_replace('/[^\x20-\x7E]/', '', $v); }
 foreach ($smtpConfig as $k => $v) { if (is_string($v)) $smtpConfig[$k] = preg_replace('/[^\x20-\x7E]/', '', $v); }
 
-// Fetch business-specific email from Supabase
+// Fetch business-specific config from Supabase
 $businessId = 'fb641c4c-f52c-40f6-86d0-e30068285f93';
-$bizUrl = $supabaseConfig['url'] . '/rest/v1/businesses?id=eq.' . $businessId . '&select=contact_email,name';
+$bizUrl = $supabaseConfig['url'] . '/rest/v1/businesses?id=eq.' . $businessId . '&select=contact_email,name,from_email,turnstile_secret,secondary_email';
 $bizCh = curl_init($bizUrl);
 curl_setopt_array($bizCh, [
     CURLOPT_RETURNTRANSFER => true,
@@ -50,10 +50,15 @@ $bizResult = json_decode(curl_exec($bizCh), true);
 curl_close($bizCh);
 
 if (!empty($bizResult[0]['contact_email'])) {
-    // from_email stays as SMTP authenticated account (ipwemails@gmail.com) to avoid spam filters
     $smtpConfig['from_name'] = $bizResult[0]['name'] ?? 'MyParkPay';
     $smtpConfig['to_email'] = $bizResult[0]['contact_email'];
 }
+
+// from_email: use business-specific or fall back to shared SMTP relay
+$fromEmail = !empty($bizResult[0]['from_email']) ? $bizResult[0]['from_email'] : $smtpConfig['username'];
+
+// turnstile_secret: use business-specific or null (skip verification if null)
+$turnstileSecret = !empty($bizResult[0]['turnstile_secret']) ? $bizResult[0]['turnstile_secret'] : null;
 
 // Get and sanitize form data
 $name = isset($_POST['name']) ? mb_substr(htmlspecialchars(trim(str_replace(["\r", "\n"], '', $_POST['name']))), 0, 100) : '';
@@ -65,34 +70,36 @@ $budget = isset($_POST['attendees']) ? mb_substr(htmlspecialchars(trim($_POST['a
 $timeline = isset($_POST['timeline']) ? mb_substr(htmlspecialchars(trim($_POST['timeline'])), 0, 50) : 'Not specified';
 $message = isset($_POST['message']) ? mb_substr(htmlspecialchars(trim($_POST['message'])), 0, 5000) : '';
 
-// Verify Turnstile CAPTCHA
-$turnstileToken = isset($_POST['cf-turnstile-response']) ? $_POST['cf-turnstile-response'] : '';
-if (empty($turnstileToken)) {
-    http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Security verification required. Please try again.']);
-    exit();
-}
+// Verify Turnstile CAPTCHA (skip if no turnstile_secret configured)
+if ($turnstileSecret) {
+    $turnstileToken = isset($_POST['cf-turnstile-response']) ? $_POST['cf-turnstile-response'] : '';
+    if (empty($turnstileToken)) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'message' => 'Security verification required. Please try again.']);
+        exit();
+    }
 
-$turnstileCh = curl_init('https://challenges.cloudflare.com/turnstile/v0/siteverify');
-curl_setopt_array($turnstileCh, [
-    CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => http_build_query([
-        'secret' => $smtpConfig['turnstile_secret'],
-        'response' => $turnstileToken,
-        'remoteip' => $_SERVER['REMOTE_ADDR'] ?? '',
-    ]),
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_TIMEOUT => 5,
-]);
-$turnstileResult = curl_exec($turnstileCh);
-curl_close($turnstileCh);
+    $turnstileCh = curl_init('https://challenges.cloudflare.com/turnstile/v0/siteverify');
+    curl_setopt_array($turnstileCh, [
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => http_build_query([
+            'secret' => $turnstileSecret,
+            'response' => $turnstileToken,
+            'remoteip' => $_SERVER['REMOTE_ADDR'] ?? '',
+        ]),
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 5,
+    ]);
+    $turnstileResult = curl_exec($turnstileCh);
+    curl_close($turnstileCh);
 
-$turnstileData = json_decode($turnstileResult, true);
-if (!$turnstileData || empty($turnstileData['success'])) {
-    http_response_code(400);
-    error_log('[MyParkPay] Turnstile verification failed: ' . ($turnstileResult ?: 'no response'), 3, __DIR__ . '/quote-requests.log');
-    echo json_encode(['success' => false, 'message' => 'Security verification failed. Please try again.']);
-    exit();
+    $turnstileData = json_decode($turnstileResult, true);
+    if (!$turnstileData || empty($turnstileData['success'])) {
+        http_response_code(400);
+        error_log('[MyParkPay] Turnstile verification failed: ' . ($turnstileResult ?: 'no response'), 3, __DIR__ . '/quote-requests.log');
+        echo json_encode(['success' => false, 'message' => 'Security verification failed. Please try again.']);
+        exit();
+    }
 }
 
 // Validate required fields
@@ -241,7 +248,7 @@ $mailer = new SMTPMailer(
 );
 
 $sent = $mailer->send(
-    $smtpConfig['from_email'],
+    $fromEmail,
     'MyParkPay',
     $smtpConfig['to_email'],
     $subject,
@@ -575,13 +582,13 @@ Submitted on: " . date('F j, Y \a\t g:i A') . "
 ";
 
         $mailer->send(
-            $smtpConfig['from_email'],
+            $fromEmail,
             'MyParkPay',
             $email,
             'Demo Request Received - MyParkPay',
             $confirmHtmlBody,
             $confirmTextBody,
-            $smtpConfig['from_email'],
+            $fromEmail,
             ''
         );
     } catch (Exception $e) {
@@ -615,7 +622,7 @@ Submitted on: " . date('F j, Y \a\t g:i A') . "
         $failAlertText = "ALERT: MyParkPay email delivery failed\n\nCustomer: {$name} ({$email})\nOrg Type: {$serviceDisplay}\nError: {$smtpError}\n\nThe request has been saved in the dashboard.";
 
         $mailer->send(
-            $smtpConfig['from_email'],
+            $fromEmail,
             'IPW Alert System',
             $smtpConfig['to_email'],
             $failAlertSubject,
