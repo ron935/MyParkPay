@@ -15,6 +15,12 @@
         window.matchMedia &&
         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // Centralized API base URL
+    var _isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    var apiBase = _isLocal
+        ? 'http://localhost:8888/dashboard/api'
+        : 'https://blue-panther-862989.hostingersite.com/api';
+
     var ticking = false; // rAF guard for scroll handler
 
     var turnstileToken = ''; // Cloudflare Turnstile token storage
@@ -534,14 +540,26 @@
             submitBtn.textContent = 'Sending...';
         }
 
-        var formData = new FormData(form);
+        var rawData = new FormData(form);
+        var formData = new FormData();
+
+        // Map fields to centralized API format
+        formData.append('business', rawData.get('business') || 'myparkpay');
+        formData.append('name', rawData.get('name') || '');
+        formData.append('email', rawData.get('email') || '');
+        formData.append('phone', rawData.get('phone') || '');
+        formData.append('company', rawData.get('organization') || '');
+        formData.append('service', rawData.get('org_type') || '');
+        formData.append('budget', rawData.get('attendees') || '');
+        formData.append('timeline', rawData.get('timeline') || '');
+        formData.append('message', rawData.get('message') || '');
 
         // Ensure Turnstile token is included
         if (turnstileToken && !formData.get('cf-turnstile-response')) {
             formData.append('cf-turnstile-response', turnstileToken);
         }
 
-        fetch('send-quote.php', {
+        fetch(apiBase + '/submit-quote.php', {
             method: 'POST',
             body: formData
         })
