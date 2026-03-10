@@ -1353,31 +1353,6 @@ select:focus-visible {
     line-height: 1.7;
 }
 
-.footer-social {
-    display: flex;
-    gap: 12px;
-}
-
-.footer-social a {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-full);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gray-400);
-    font-size: 0.95rem;
-    transition: var(--transition);
-}
-
-.footer-social a:hover {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: var(--white);
-    transform: translateY(-3px);
-}
-
 .footer-col h4 {
     font-family: var(--font-heading);
     font-size: 1.05rem;
