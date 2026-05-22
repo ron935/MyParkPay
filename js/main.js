@@ -569,7 +569,9 @@
         if (document.referrer) formData.append('referrer', document.referrer);
         formData.append('source', location.href);
 
-        fetch(apiBase + '/submit-quote.php', {
+        formData.append('token', 'tU2W4vO0bUbwJNPndHm601JRoLimac8zjPRIWad3');
+
+        fetch(apiBase + '/submit-quote', {
             method: 'POST',
             body: formData
         })
